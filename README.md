@@ -1,4 +1,4 @@
-# 🛢️ Hotel Booking Database System
+# Hotel Booking Database System
 
 ## 📄 Overview
 Perusahaan menghadapi tantangan untuk meningkatkan penjualan dan memahami faktor-faktor yang memengaruhi hasil penjualan. Dengan banyaknya produk dan segmen pasar, perusahaan perlu mengidentifikasi tren penjualan, produk yang paling menguntungkan, serta area yang membutuhkan perhatian lebih. Oleh karena itu, analisis data penjualan yang lebih mendalam diperlukan untuk mengoptimalkan strategi pemasaran dan pengelolaan produk.
