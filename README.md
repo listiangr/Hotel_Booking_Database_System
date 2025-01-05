@@ -1,6 +1,7 @@
 # Hotel Booking Database System
 
 ## 📄 Overview
+
 Proyek ini bertujuan untuk mendesain dan mengimplementasikan database relasional untuk sistem reservasi hotel yang efisien, dengan tujuan mempermudah pengelolaan data tamu, pemesanan, kamar, pembayaran, dan ulasan. Sistem ini dirancang untuk meningkatkan efisiensi operasional hotel, meminimalkan kesalahan manual, dan memberikan pengalaman yang lebih baik bagi tamu melalui pengelolaan data yang terpusat dan terorganisir.
 
 **Fitur Utama:**
@@ -135,12 +136,46 @@ Proyek ini bertujuan untuk mendesain dan mengimplementasikan database relasional
 
 ## 💻 SQL Query
 
-## 📊 Visualisasi
+### 1. Menampilkan Semua Data Tamu yang Pernah Memesan
+```sql
+SELECT g.id, g.name, g.phone, b.booking_date 
+FROM guests g
+JOIN bookings b ON g.id = b.guest_id;
+```
 
 ## 📚 Case Study
 
 ## 🚀 How to Run
 
+`Clone Repository`
+
+Clone repository proyek ini ke lokal Anda:
+```bash
+git clone https://github.com/listiangr/Hotel_Booking_Database_System.git
+```
+
+`Buka Aplikasi Database`
+
+Gunakan aplikasi database seperti phpMyAdmin, MySQL Workbench, atau MariaDB.
+
+`Import File SQL`
+
+Pilih database yang ingin digunakan atau buat database baru.
+Import file hotel_database.sql yang ada di folder Database/.
+
+`Jalankan Query`
+
+Buka file queries.sql di folder Queries/ untuk mencoba contoh query yang telah disediakan.
+Jalankan query di aplikasi database Anda untuk melihat hasilnya.
+
+
 ## 📌 Conclusion
+
+Sistem database reservasi hotel ini memberikan solusi yang terorganisir untuk mengelola data tamu, kamar, pembayaran, dan ulasan dengan lebih efisien. Dengan desain relasional, sistem ini dapat:
+1. Meminimalkan Kesalahan Manual: Data yang terpusat mempermudah pengelolaan dan mengurangi risiko kesalahan.
+2. Meningkatkan Kecepatan Pencarian Data: Query yang dioptimalkan memungkinkan pengambilan data secara cepat.
+3. Mempermudah Pelacakan Transaksi: Semua transaksi dicatat dengan detail, memudahkan audit dan pelaporan.
+4. Evaluasi Layanan Melalui Ulasan: Data ulasan tamu membantu hotel dalam meningkatkan kualitas layanan.
+Sistem ini dapat dikembangkan lebih lanjut untuk mengintegrasikan API pembayaran, fitur notifikasi, dan dashboard analitik untuk pelaporan real-time.
 
 ---
