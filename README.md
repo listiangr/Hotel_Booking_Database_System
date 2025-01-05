@@ -14,16 +14,17 @@ Proyek ini bertujuan untuk mendesain dan mengimplementasikan database relasional
 
 ## 📂 Folder Structure 
 
-`database/`
-- `hotel_booking.sql`: Skrip untuk membuat dan mengisi database.
+`Database/`
+- `hotel_database.sql`: Skrip lengkap untuk membuat dan mengisi database.
 
-`queries/`
+`Queries/`
 - `queries.sql`: Contoh query SQL yang digunakan dalam proyek ini.
 
-`images/`
-- Gambar untuk ERD, database schema, dan hasil query.
+`Images/`
+- `erd_imagae.png`: Gambar Entity Relationship Diagram (ERD).
+- `database_schema.png`: Gambar skema database berisi atribut dan relasi. 
 
-`README.md`: Dokumentasi proyek.
+`README.md`: Dokumentasi proyek Hotel Booking Database System.
 
 ---
 
@@ -112,6 +113,23 @@ Proyek ini bertujuan untuk mendesain dan mengimplementasikan database relasional
 | `booking_id`           | ID yang merujuk pada data booking (Tabel Bookings)   |
 | `rating`               | Total harga yang dibayarkan                          |
 | `comment`              | Status pembayaran (Paid, Pending, Cancelled)         |
+
+### Data Relationship
+
+`Guests and Bookings`
+> Tabel Guests memiliki hubungan satu ke banyak (one-to-many) dengan tabel Bookings. Setiap tamu (guest) dapat membuat beberapa pemesanan (bookings). Relasi ini dihubungkan melalui kolom guest_id pada tabel Bookings, yang merujuk pada kolom id di tabel Guests
+
+`Rooms and Details`
+> Tabel Rooms memiliki hubungan satu ke banyak (one-to-many) dengan tabel Details. Satu kamar dapat digunakan dalam beberapa pemesanan (details), namun untuk waktu yang berbeda. Relasi ini dihubungkan melalui kolom room_id pada tabel Details, yang merujuk pada kolom id di tabel Rooms.
+
+`Bookings and Details`
+> Tabel Bookings memiliki hubungan satu ke banyak (one-to-many) dengan tabel Details. Satu pemesanan dapat mencakup beberapa kamar. Relasi ini dihubungkan melalui kolom booking_id pada tabel Details, yang merujuk pada kolom id di tabel Bookings. 
+
+`Bookings and Payments`
+> Tabel Bookings memiliki hubungan satu ke satu (one-to-one) dengan tabel Payments. Setiap pemesanan memiliki satu pembayaran yang tercatat. Relasi ini dihubungkan melalui kolom booking_id pada tabel Payments, yang merujuk pada kolom id di tabel Bookings.
+
+`Bookings and Reviews`
+> Tabel Bookings memiliki hubungan satu ke satu (one-to-one) dengan tabel Reviews. Setiap pemesanan yang selesai dapat memiliki satu ulasan dari tamu. Relasi ini dihubungkan melalui kolom booking_id pada tabel Reviews, yang merujuk pada kolom id di tabel Bookings.
 
 --- 
 
