@@ -26,11 +26,45 @@ Proyek ini bertujuan untuk mendesain dan mengimplementasikan database relasional
 
 ---
 
-## 📐 Entity Relationship Diagram (ERD)
-ERD Berikut menggambarkan hubungan antar entitas di database:
-
-
 ## 🛠️ Database Structure
+
+### Entity Relationship Diagram (ERD)
+
+ERD berikut menggambarkan hubungan antar entitas di database:
+
+![Entity Relationship Diagram](https://github.com/listiangr/Hotel_Booking_Database_System/blob/main/Images/erd_image.png)
+
+### Database Schema
+
+Schema berikut menggambarkan hubungan antar entitas di database:
+
+![Database Schema](https://github.com/listiangr/Hotel_Booking_Database_System/blob/main/Images/database_schema.png)
+
+### Database Table
+
+#### Guests Table
+
+| **Kolom**              | **Deskripsi**                                        |
+|------------------------|------------------------------------------------------|
+| `id`                   | ID unik untuk setiap transaksi pesanan               |
+| `name`                 | Tanggal pesanan dilakukan                            |
+| `gender`               | Tanggal pengiriman barang                            |
+| `phone`                | Metode pengiriman produk (misal: Second Class)       |
+| `email`                | ID unik untuk pelanggan                              |
+| `address`              | xxxxxx                                               |
+
+### Rooms Table
+
+| **Kolom**              | **Deskripsi**                                        |
+|------------------------|------------------------------------------------------|
+| `id`                   | ID unik untuk setiap transaksi pesanan               |
+| `floor`                | Tanggal pesanan dilakukan                            |
+| `room_number`          | Tanggal pengiriman barang                            |
+| `room_type`            | Metode pengiriman produk (misal: Second Class)       |
+| `price_night`          | ID unik untuk pelanggan                              |
+| `status`               | xxxxxx                                               |
+
+--- 
 
 ## 💻 SQL Query
 
@@ -43,23 +77,3 @@ ERD Berikut menggambarkan hubungan antar entitas di database:
 ## 📌 Conclusion
 
 ---
-
-## 📊 Data Overview
-Data yang digunakan dalam proyek ini adalah data penjualan e-commerce yang mencakup informasi berikut:
-
-### Struktur Data
-
-| **Kolom**              | **Deskripsi**                                        |
-|------------------------|------------------------------------------------------|
-| `Order ID`             | ID unik untuk setiap transaksi pesanan               |
-| `Order Date`           | Tanggal pesanan dilakukan                           |
-| `Ship Date`            | Tanggal pengiriman barang                           |
-| `Ship Mode`            | Metode pengiriman produk (misal: Second Class)       |
-| `Customer ID`          | ID unik untuk pelanggan                              |
-
-
-   Berikut adalah dashboard visualisasi dari data penjualan yang telah dianalisis.
-
-  ![Sales Dashboard](https://github.com/listiangr/Ecommerce_Sales_Data_Analysis_Using_Excel/blob/main/Sales%20Dashboard.png?row=true)
-
-  
