@@ -30,13 +30,9 @@ Proyek ini bertujuan untuk mendesain dan mengimplementasikan database relasional
 
 ### Entity Relationship Diagram (ERD)
 
-ERD berikut menggambarkan hubungan antar entitas di database:
-
 ![Entity Relationship Diagram](https://github.com/listiangr/Hotel_Booking_Database_System/blob/main/Images/erd_image.png)
 
 ### Database Schema
-
-Schema berikut menggambarkan hubungan antar entitas di database:
 
 ![Database Schema](https://github.com/listiangr/Hotel_Booking_Database_System/blob/main/Images/database_schema.png)
 
@@ -44,25 +40,68 @@ Schema berikut menggambarkan hubungan antar entitas di database:
 
 #### Guests Table
 
-| **Kolom**              | **Deskripsi**                                        |
-|------------------------|------------------------------------------------------|
-| `id`                   | ID unik untuk setiap transaksi pesanan               |
-| `name`                 | Tanggal pesanan dilakukan                            |
-| `gender`               | Tanggal pengiriman barang                            |
-| `phone`                | Metode pengiriman produk (misal: Second Class)       |
-| `email`                | ID unik untuk pelanggan                              |
-| `address`              | xxxxxx                                               |
-
-### Rooms Table
+> Tabel berisi informasi lengkap dari tamu hotel.
 
 | **Kolom**              | **Deskripsi**                                        |
 |------------------------|------------------------------------------------------|
-| `id`                   | ID unik untuk setiap transaksi pesanan               |
-| `floor`                | Tanggal pesanan dilakukan                            |
-| `room_number`          | Tanggal pengiriman barang                            |
-| `room_type`            | Metode pengiriman produk (misal: Second Class)       |
-| `price_night`          | ID unik untuk pelanggan                              |
-| `status`               | xxxxxx                                               |
+| `id`                   | ID unik untuk setiap tamu                            |
+| `name`                 | Nama lengkap tamu hotel                              |
+| `gender`               | Jenis kelamin tamu -> Female, Male                   |
+| `phone`                | Nomor telepon tamu hotel                             |
+| `email`                | Alamat email tamu hotel                              |
+| `address`              | Alamat rumah lengkap tamu hotel                      |
+
+#### Rooms Table
+
+> Tabel berisi informasi kamar yang ada pada hotel. 
+
+| **Kolom**              | **Deskripsi**                                        |
+|------------------------|------------------------------------------------------|
+| `id`                   | ID unik untuk setiap kamar hotel                     |
+| `floor`                | Data nomor lantai pada hotel                         |
+| `room_number`          | Data Nomor kamar hotel                               |
+| `room_type`            | Jenis kamar hotel (Standard, Superior, Suite)        |
+| `price_night`          | Harga kamar hotel untuk satu malam                   |
+| `status`               | Status ketersedian kamar (Availble, Occupied)        |
+
+#### Bookings Table
+
+> Tabel berisi informasi pemesanan hotel yang dilakukan oleh tamu. 
+
+| **Kolom**              | **Deskripsi**                                        |
+|------------------------|------------------------------------------------------|
+| `id`                   | ID unik untuk setiap pemesanan kamar                 |
+| `guest_id`             | ID yang merujuk pada data tamu (Tabel Guests)        |
+| `booking_date`         | Tanggal saat booking dibuat                          |
+| `booking_code`         | Kode booking hotel yang bersifat unik                |
+| `status`               | Status booking (Completed, Ongoing, Upcoming)        |
+
+#### Details Table
+
+> Tabel berisi informasi lebih rinci terkait pemesanan kamar hotel. 
+
+| **Kolom**              | **Deskripsi**                                        |
+|------------------------|------------------------------------------------------|
+| `id`                   | ID unik untuk setiap kamar hotel                     |
+| `booking_id`           | Data nomor lantai pada hotel                         |
+| `room_id`              | Data Nomor kamar hotel                               |
+| `check_in`             | Jenis kamar hotel (Standard, Superior, Suite)        |
+| `check_out`            | Harga kamar hotel untuk satu malam                   |
+| `price_total`          | Status ketersedian kamar (Availble, Occupied)        |
+
+#### Payments Table
+
+> Tabel berisi informasi kamar yang ada pada hotel. 
+
+| **Kolom**              | **Deskripsi**                                        |
+|------------------------|------------------------------------------------------|
+| `id`                   | ID unik untuk setiap kamar hotel                     |
+| `floor`                | Data nomor lantai pada hotel                         |
+| `room_number`          | Data Nomor kamar hotel                               |
+| `room_type`            | Jenis kamar hotel (Standard, Superior, Suite)        |
+| `price_night`          | Harga kamar hotel untuk satu malam                   |
+| `status`               | Status ketersedian kamar (Availble, Occupied)        |
+
 
 --- 
 
