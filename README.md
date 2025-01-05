@@ -13,6 +13,7 @@ Proyek ini bertujuan untuk mendesain dan mengimplementasikan database relasional
 ---
 
 ## 📂 Folder Structure 
+
 `database/`
 - `hotel_booking.sql`: Skrip untuk membuat dan mengisi database.
 
@@ -82,26 +83,35 @@ Proyek ini bertujuan untuk mendesain dan mengimplementasikan database relasional
 
 | **Kolom**              | **Deskripsi**                                        |
 |------------------------|------------------------------------------------------|
-| `id`                   | ID unik untuk setiap kamar hotel                     |
-| `booking_id`           | Data nomor lantai pada hotel                         |
-| `room_id`              | Data Nomor kamar hotel                               |
-| `check_in`             | Jenis kamar hotel (Standard, Superior, Suite)        |
-| `check_out`            | Harga kamar hotel untuk satu malam                   |
-| `price_total`          | Status ketersedian kamar (Availble, Occupied)        |
+| `id`                   | ID unik untuk setiap detail pemesanan                |
+| `booking_id`           | ID yang merujuk pada data booking (Tabel Bookings)   |
+| `room_id`              | ID yang merujuk pada data kamar (Tabel Rooms)        |
+| `check_in`             | Tanggal mulai menginap di hotel                      |
+| `check_out`            | Tanggal selesai menginap di hotel                    |
+| `price_total`          | Total harga (lama menginap * harga sewa kamar)       |
 
 #### Payments Table
 
-> Tabel berisi informasi kamar yang ada pada hotel. 
+> Tabel berisi informasi riwayat pembayaran setelah kamar dipesan.  
 
 | **Kolom**              | **Deskripsi**                                        |
 |------------------------|------------------------------------------------------|
-| `id`                   | ID unik untuk setiap kamar hotel                     |
-| `floor`                | Data nomor lantai pada hotel                         |
-| `room_number`          | Data Nomor kamar hotel                               |
-| `room_type`            | Jenis kamar hotel (Standard, Superior, Suite)        |
-| `price_night`          | Harga kamar hotel untuk satu malam                   |
-| `status`               | Status ketersedian kamar (Availble, Occupied)        |
+| `id`                   | ID unik untuk setiap pembayaran                      |
+| `booking_id`           | ID yang merujuk pada data booking (Tabel Bookings)   |
+| `amount_paid`          | Total harga yang dibayarkan                          |
+| `method`               | Metode pembayaran (Bank Transfer, Credit Card, Digital Wallet) |
+| `status`               | Status pembayaran (Paid, Pending, Cancelled)         |
 
+#### Reviews Table
+
+> Tabel berisi ulasan yang diberikan oleh tamu setelah selesai menginap.  
+
+| **Kolom**              | **Deskripsi**                                        |
+|------------------------|------------------------------------------------------|
+| `id`                   | ID unik untuk setiap pembayaran                      |
+| `booking_id`           | ID yang merujuk pada data booking (Tabel Bookings)   |
+| `rating`               | Total harga yang dibayarkan                          |
+| `comment`              | Status pembayaran (Paid, Pending, Cancelled)         |
 
 --- 
 
