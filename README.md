@@ -24,6 +24,7 @@ Proyek ini bertujuan untuk mendesain dan mengimplementasikan database relasional
 
 `README.md`: Dokumentasi proyek.
 
+---
 
 ## 📐 Entity Relationship Diagram (ERD)
 ERD Berikut menggambarkan hubungan antar entitas di database:
