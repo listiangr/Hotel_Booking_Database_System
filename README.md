@@ -177,8 +177,21 @@ VALUES
   ('Daniel Jackson', 'Male', '+1-909-555-8901', 'daniel.jackson25@gmail.com', '8769 Citrus Ave, Riverside, California');
 ```
 
+### 4. Select Table
+> Query untuk melihat semua data pada tabel guests
+
+
+---
 
 ## 📚 Case Study
+
+Studi kasus yang akan dibahas adalah proses reservasi kamar hotel oleh seorang tamu yang mencakup seluruh tahapan dalam proses booking, mulai dari pengecekan ketersediaan kamar, registrasi tamu, pencatatan booking, pembayaran, hingga ulasan. Setiap langkah akan dijelaskan secara rinci untuk memberikan gambaran bagiamana sistem manajemen hotel bekerja.  
+
+> John Doe ingin memesan kamar hotel untuk liburan bersama keluarganya. Ia membutuhkan dua kamar, satu untuk dirinya dan istrinya, serta satu lagi untuk kedua anak mereka. John memesan kamar tipe Suite dan tipe Double melalui sistem online. Booking dilakukan pada tanggal 2025-01-05, dengan rencana check-in pada 2025-01-10 dan check-out pada 2025-01-12 (2 malam). Setelah pembayaran dilakukan menggunakan kartu kredit, John dan keluarganya menginap sesuai jadwal. Setelah check-out, John memberikan ulasan positif tentang pengalaman menginapnya.
+
+ 
+
+---
 
 ## 🚀 How to Run
 
