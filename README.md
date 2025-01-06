@@ -136,6 +136,34 @@ Proyek ini bertujuan untuk mendesain dan mengimplementasikan database relasional
 
 ## 💻 SQL Query
 
+### 1. Membuat Database
+
+```sql
+CREATE DATABASE hotel_database;
+```
+
+### 2. Membuat Table 
+
+### Guests Table 
+
+```sql
+SELECT g.id, g.name, g.phone, b.booking_date 
+FROM guests g
+JOIN bookings b ON g.id = b.guest_id;
+```
+
+
+
+### Rooms Tables
+
+### Bookings Table
+
+### Details Table
+
+### Payments Table
+
+### Ratings Table
+
 ### 1. Menampilkan Semua Data Tamu yang Pernah Memesan
 ```sql
 SELECT g.id, g.name, g.phone, b.booking_date 
