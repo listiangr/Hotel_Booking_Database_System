@@ -182,27 +182,20 @@ VALUES
 
 ## 🚀 How to Run
 
-`Clone Repository`
+1. Clone repository
+   ```bash
+   git clone https://github.com/listiangr/Hotel_Booking_Database_System.git
+2. Import database
+   ```bash
+   pip install -r requirements.txt
+3. Run app
+   ```bash
+   python play_tennis_app.py
+4. Open browser
+   ```bash
+   http://127.0.0.1:5000
 
-Clone repository proyek ini ke lokal Anda:
-```bash
-git clone https://github.com/listiangr/Hotel_Booking_Database_System.git
-```
-
-`Buka Aplikasi Database`
-
-Gunakan aplikasi database seperti phpMyAdmin, MySQL Workbench, atau MariaDB.
-
-`Import File SQL`
-
-Pilih database yang ingin digunakan atau buat database baru.
-Import file hotel_database.sql yang ada di folder Database/.
-
-`Jalankan Query`
-
-Buka file queries.sql di folder Queries/ untuk mencoba contoh query yang telah disediakan.
-Jalankan query di aplikasi database Anda untuk melihat hasilnya.
-
+---
 
 ## 📌 Conclusion
 
