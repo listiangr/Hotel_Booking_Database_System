@@ -144,6 +144,13 @@ CREATE DATABASE hotel_database;
 
 ### 2. Membuat Table 
 
+![create_guests](https://github.com/listiangr/Hotel_Booking_Database_System/blob/main/Images/create_guests.png)
+![create_rooms](https://github.com/listiangr/Hotel_Booking_Database_System/blob/main/Images/create_rooms.png)
+![create_bookings](https://github.com/listiangr/Hotel_Booking_Database_System/blob/main/Images/create_bookings.png)
+![create_details](https://github.com/listiangr/Hotel_Booking_Database_System/blob/main/Images/create_details.png)
+![create_payments](https://github.com/listiangr/Hotel_Booking_Database_System/blob/main/Images/create_payments.png)
+![create_reviews](https://github.com/listiangr/Hotel_Booking_Database_System/blob/main/Images/create_reviews.png)
+
 ### Guests Table 
 
 ```sql
