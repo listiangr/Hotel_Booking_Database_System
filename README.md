@@ -110,10 +110,10 @@ Proyek ini bertujuan untuk mendesain dan mengimplementasikan database relasional
 
 | **Kolom**              | **Deskripsi**                                        |
 |------------------------|------------------------------------------------------|
-| `id`                   | ID unik untuk setiap pembayaran                      |
+| `id`                   | ID unik untuk setiap ulasan yang ditulis             |
 | `booking_id`           | ID yang merujuk pada data booking (Tabel Bookings)   |
-| `rating`               | Total harga yang dibayarkan                          |
-| `comment`              | Status pembayaran (Paid, Pending, Cancelled)         |
+| `rating`               | Rating ulasan skala 1 - 5                            |
+| `comment`              | Komentar terkait pengalaman booking hotel            |
 
 ### Data Relationship
 
