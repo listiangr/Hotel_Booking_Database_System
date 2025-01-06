@@ -129,54 +129,54 @@ Proyek ini bertujuan untuk mendesain dan mengimplementasikan database relasional
 `Bookings and Payments`
 > Tabel Bookings memiliki hubungan satu ke satu (one-to-one) dengan tabel Payments. Setiap pemesanan memiliki satu pembayaran yang tercatat. Relasi ini dihubungkan melalui kolom booking_id pada tabel Payments, yang merujuk pada kolom id di tabel Bookings.
 
-`Bookings and Reviews`
+`Bookings and Reviews` 
 > Tabel Bookings memiliki hubungan satu ke satu (one-to-one) dengan tabel Reviews. Setiap pemesanan yang selesai dapat memiliki satu ulasan dari tamu. Relasi ini dihubungkan melalui kolom booking_id pada tabel Reviews, yang merujuk pada kolom id di tabel Bookings.
 
 --- 
 
 ## 💻 SQL Query
 
-### 1. Membuat Database
-
+### 1. Create Database
+> Query sql untuk membuat database dengan nama hotel_database
 ```sql
 CREATE DATABASE hotel_database;
 ```
 
-### 2. Membuat Table 
-
-![create_guests](https://github.com/listiangr/Hotel_Booking_Database_System/blob/main/Images/create_guests.png)
-![create_rooms](https://github.com/listiangr/Hotel_Booking_Database_System/blob/main/Images/create_rooms.png)
-![create_bookings](https://github.com/listiangr/Hotel_Booking_Database_System/blob/main/Images/create_bookings.png)
-![create_details](https://github.com/listiangr/Hotel_Booking_Database_System/blob/main/Images/create_details.png)
-![create_payments](https://github.com/listiangr/Hotel_Booking_Database_System/blob/main/Images/create_payments.png)
-![create_reviews](https://github.com/listiangr/Hotel_Booking_Database_System/blob/main/Images/create_reviews.png)
-
-### Guests Table 
-
+### 2. Create Table 
+> Query sql untuk membuat tabel guests, tabel lain dapat dilihat di `Database/hotel_database.sql`
 ```sql
-SELECT g.id, g.name, g.phone, b.booking_date 
-FROM guests g
-JOIN bookings b ON g.id = b.guest_id;
+CREATE TABLE guests (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  gender ENUM('Male', 'Female') NOT NULL,
+  phone VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  address VARCHAR(255) NOT NULL
+);
 ```
 
-
-
-### Rooms Tables
-
-### Bookings Table
-
-### Details Table
-
-### Payments Table
-
-### Ratings Table
-
-### 1. Menampilkan Semua Data Tamu yang Pernah Memesan
+### 3. Insert Table
+> Query sql untuk mengisi tabel guest, tabel lain dapat dilihat di `Database/hotel_database.sql`
 ```sql
-SELECT g.id, g.name, g.phone, b.booking_date 
-FROM guests g
-JOIN bookings b ON g.id = b.guest_id;
+INSERT INTO guests (name, gender, phone, email, address)
+VALUES
+  ('James Smith', 'Male', '+1-214-555-1234', 'james.smith87@gmail.com', '2984 Elm St, Dallas, Texas'),
+  ('Emma Johnson', 'Female', '+1-310-555-5678', 'emma.johnson45@yahoo.com', '6721 Maple Ave, Los Angeles, California'),
+  ('Olivia Davis', 'Female', '+1-206-555-2345', 'olivia.davis29@yahoo.com', '4829 Pine St, Seattle, Washington'),
+  ('Michael Brown', 'Male', '+1-512-555-9876', 'michael.brown32@gmail.com', '8143 Oak Dr, Austin, Texas'),
+  ('Ava Wilson', 'Female', '+1-281-555-3456', 'ava.wilson98@gmail.com', '9356 Main St, Houston, Texas'),
+  ('William Miller', 'Male', '+1-646-555-8765', 'william.miller61@gmail.com', '7543 Broadway, New York, New York'),
+  ('Ethan Moore', 'Male', '+1-408-555-4567', 'ethan.moore11@yahoo.com', '5431 Silicon Blvd, San Jose, California'),
+  ('Sophia Taylor', 'Female', '+1-425-555-5678', 'sophia.taylor73@gmail.com', '8765 Lakeview Dr, Bellevue, Washington'),
+  ('Alexander Anderson', 'Male', '+1-718-555-6789', 'alexander.anderson12@yahoo.com', '2349 Queens Blvd, Queens, New York'),
+  ('Isabella Thomas', 'Female', '+1-210-555-7890', 'isabella.thomas42@gmail.com', '6512 Alamo St, San Antonio, Texas'),
+  ('Mia White', 'Female', '+1-360-555-9012', 'mia.white84@yahoo.com', '3921 Evergreen Way, Tacoma, Washington'),
+  ('Matthew Harris', 'Male', '+1-212-555-0123', 'matthew.harris76@gmail.com', '2483 Park Ave, Manhattan, New York'),
+  ('Amelia Martin', 'Female', '+1-512-555-1234', 'amelia.martin33@yahoo.com', '7421 Congress Ave, Austin, Texas'),
+  ('Lucas Thompson', 'Male', '+1-925-555-2345', 'lucas.thompson57@gmail.com', '9832 Walnut Blvd, Berkeley, California'),
+  ('Daniel Jackson', 'Male', '+1-909-555-8901', 'daniel.jackson25@gmail.com', '8769 Citrus Ave, Riverside, California');
 ```
+
 
 ## 📚 Case Study
 
