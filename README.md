@@ -178,8 +178,46 @@ VALUES
 ```
 
 ### 4. Select Table
-> Query untuk melihat semua data pada tabel guests
 
+> Query untuk menampilkan semua data atau informasi tamu hotel
+```sql
+SELECT * FROM Guests;
+```
+![All Guest](https://github.com/listiangr/Hotel_Booking_Database_System/blob/main/Images/select_all_guest.png)
+
+> Query untuk menampilkan semua kamar yang tersedia dengan harga per malam di bawah $300
+```sql
+SELECT * FROM Rooms
+WHERE
+  status = 'Available' AND
+  price_night < 300;
+```
+![Available Room](https://github.com/listiangr/Hotel_Booking_Database_System/blob/main/Images/select_available_room.png)
+
+> Query untuk menampilkan pembayaran yang menggunakan credit card dan jumlah pembayarn di atas $2000
+```sql
+SELECT * FROM Payments
+WHERE
+  method = 'Credit Card' AND
+  amount_paid > 2000; 
+```
+![Payment Credit](https://github.com/listiangr/Hotel_Booking_Database_System/blob/main/Images/select_payment_credit.png)
+
+> Query untuk menampilkan ulasan booking yang meliputi nama tamu, kode booking, rating, ulasan
+```sql
+SELECT
+  Guests.name AS guest_name,
+  Bookings.booking_code,
+  Reviews.rating,
+  Reviews.comment
+FROM
+  Guests
+JOIN
+  Bookings ON Guests.id = Bookings.guest_id
+JOIN
+  Reviews ON Bookings.id = Reviews.booking_id; 
+```
+![Hotel Review](https://github.com/listiangr/Hotel_Booking_Database_System/blob/main/Images/select_review_hotel.png)
 
 ---
 
@@ -187,7 +225,7 @@ VALUES
 
 Studi kasus yang akan dibahas adalah proses reservasi kamar hotel oleh seorang tamu yang mencakup seluruh tahapan dalam proses booking, mulai dari pengecekan ketersediaan kamar, registrasi tamu, pencatatan booking, pembayaran, hingga ulasan. Setiap langkah akan dijelaskan secara rinci untuk memberikan gambaran bagiamana sistem manajemen hotel bekerja.  
 
-> John Doe ingin memesan kamar hotel untuk liburan bersama keluarganya. Ia membutuhkan dua kamar, satu untuk dirinya dan istrinya, serta satu lagi untuk kedua anak mereka. John memesan kamar tipe Suite dan tipe Double melalui sistem online. Booking dilakukan pada tanggal 2025-01-05, dengan rencana check-in pada 2025-01-10 dan check-out pada 2025-01-12 (2 malam). Setelah pembayaran dilakukan menggunakan kartu kredit, John dan keluarganya menginap sesuai jadwal. Setelah check-out, John memberikan ulasan positif tentang pengalaman menginapnya.
+> John Doe ingin memesan kamar hotel untuk liburan bersama keluarganya. Ia membutuhkan dua kamar, satu untuk dirinya dan istrinya, serta satu lagi untuk kedua anak mereka. John memesan kamar tipe Suite dan tipe Superior melalui sistem online. Booking dilakukan pada tanggal 2025-01-05, dengan rencana check-in pada 2025-01-10 dan check-out pada 2025-01-12 (2 malam). Setelah pembayaran dilakukan menggunakan kartu kredit, John dan keluarganya menginap sesuai jadwal. Setelah check-out, John memberikan ulasan positif tentang pengalaman menginapnya.
 
  
 
