@@ -225,7 +225,7 @@ JOIN
 
 Studi kasus yang akan dibahas adalah proses reservasi kamar hotel oleh seorang tamu yang mencakup seluruh tahapan dalam proses booking, mulai dari pengecekan ketersediaan kamar, registrasi tamu, pencatatan booking, pembayaran, hingga ulasan. Setiap langkah akan dijelaskan secara rinci untuk memberikan gambaran bagiamana sistem manajemen hotel bekerja.  
 
-> John Doe ingin memesan kamar hotel untuk liburan bersama keluarganya. Ia membutuhkan dua kamar, satu untuk dirinya dan istrinya, serta satu lagi untuk kedua anak mereka. John memesan kamar tipe Suite dan tipe Superior melalui sistem online. Booking dilakukan pada tanggal 2024-12-27, dengan rencana check-in pada 2025-01-10 dan check-out pada 2025-01-12 (2 malam). Setelah pembayaran dilakukan menggunakan kartu kredit, John dan keluarganya menginap sesuai jadwal. Setelah check-out, John memberikan ulasan positif tentang pengalaman menginapnya.
+> John Doe ingin memesan kamar hotel untuk liburan bersama keluarganya. Ia membutuhkan dua kamar, satu untuk dirinya dan istrinya, serta satu lagi untuk kedua anak mereka. John memesan kamar tipe Suite dan tipe Superior melalui sistem online. Booking dilakukan pada tanggal 2024-12-27, dengan rencana check-in pada 2024-12-29 dan check-out pada 2024-12-30 (2 malam). Setelah pembayaran dilakukan menggunakan kartu kredit, John dan keluarganya menginap sesuai jadwal. Setelah check-out, John memberikan ulasan positif tentang pengalaman menginapnya.
 
 ### 1. Availibility Room Check 
 ```sql
