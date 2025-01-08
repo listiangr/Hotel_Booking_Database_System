@@ -65,7 +65,7 @@ Proyek ini bertujuan untuk mendesain dan mengimplementasikan database relasional
 | `room_number`          | Data Nomor kamar hotel                               |
 | `room_type`            | Jenis kamar hotel (Standard, Superior, Suite)        |
 | `price_night`          | Harga kamar hotel untuk satu malam                   |
-| `status`               | Status ketersedian kamar (Availble, Occupied)        |
+| `status`               | Status ketersedian kamar (Available, Occupied)        |
 
 #### Bookings Table
 
@@ -225,9 +225,80 @@ JOIN
 
 Studi kasus yang akan dibahas adalah proses reservasi kamar hotel oleh seorang tamu yang mencakup seluruh tahapan dalam proses booking, mulai dari pengecekan ketersediaan kamar, registrasi tamu, pencatatan booking, pembayaran, hingga ulasan. Setiap langkah akan dijelaskan secara rinci untuk memberikan gambaran bagiamana sistem manajemen hotel bekerja.  
 
-> John Doe ingin memesan kamar hotel untuk liburan bersama keluarganya. Ia membutuhkan dua kamar, satu untuk dirinya dan istrinya, serta satu lagi untuk kedua anak mereka. John memesan kamar tipe Suite dan tipe Superior melalui sistem online. Booking dilakukan pada tanggal 2025-01-05, dengan rencana check-in pada 2025-01-10 dan check-out pada 2025-01-12 (2 malam). Setelah pembayaran dilakukan menggunakan kartu kredit, John dan keluarganya menginap sesuai jadwal. Setelah check-out, John memberikan ulasan positif tentang pengalaman menginapnya.
+> John Doe ingin memesan kamar hotel untuk liburan bersama keluarganya. Ia membutuhkan dua kamar, satu untuk dirinya dan istrinya, serta satu lagi untuk kedua anak mereka. John memesan kamar tipe Suite dan tipe Superior melalui sistem online. Booking dilakukan pada tanggal 2024-12-27, dengan rencana check-in pada 2025-01-10 dan check-out pada 2025-01-12 (2 malam). Setelah pembayaran dilakukan menggunakan kartu kredit, John dan keluarganya menginap sesuai jadwal. Setelah check-out, John memberikan ulasan positif tentang pengalaman menginapnya.
 
- 
+### 1. Availibility Room Check 
+```sql
+SELECT * FROM Rooms 
+WHERE
+  room_type IN ('Suite', 'Superior') AND
+  status = 'Available';
+```
+
+### 2. Guest Registration 
+```sql
+INSERT INTO Guests (name, gender, phone, email, address)
+VALUE
+  ('John Doe', 'Male', '+1-123-456-7890', 'john.doe@example.com', '123 Main Street, Manhattan, New York');
+```
+
+### 3. Hotel Booking
+```sql
+INSERT INTO `bookings` (`guest_id`, `booking_date`, `booking_code`, `status`) 
+VALUE
+  (16, '2024-12-27', 'BKG20241222001', 'Upcoming');
+```
+
+### 4. Room Booking
+```sql
+INSERT INTO `details` (`booking_id`, `room_id`, `check_in`, `check_out`, `price_total`) 
+VALUES
+  (16, 20, '2024-12-29', '2024-12-30', 900),
+  (16, 21, '2024-12-29', '2024-12-30', 5000);
+```
+
+### 5. Update Room (Occupied)
+```sql
+UPDATE rooms
+SET
+  status = 'Occupied'
+WHERE
+  id IN (20, 21); 
+```
+
+### 6. Insert Payment
+```sql
+INSERT INTO `payments` (`booking_id`, `amount_paid`, `method`, `status`) 
+VALUE
+  (16, 1400, 'Bank Transfer', 'Pending');
+```
+
+### 7. Update Payment
+```sql
+UPDATE payments
+SET
+  status = 'Paid'
+WHERE
+  id = 16; 
+```
+
+### 8. Update Booking & Room Status
+```sql
+UPDATE bookings, rooms
+SET
+  bookings.status = 'Completed',
+  rooms.status = 'Available'
+WHERE
+  bookings.id = 16 AND
+  rooms.id IN (20, 21);
+```
+
+### Create Review
+```sql
+INSERT INTO `reviews` (`booking_id`, `rating`, `comment`) 
+VALUE
+	(16, '5', 'Amazing hotel, I love it.');
+```
 
 ---
 
