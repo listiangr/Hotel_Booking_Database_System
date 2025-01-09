@@ -16,10 +16,10 @@ Proyek ini bertujuan untuk mendesain dan mengimplementasikan database relasional
 ## 📂 Folder Structure 
 
 `Database/`
-- `hotel_database.sql`: Skrip lengkap untuk membuat dan mengisi database.
+- `hotel_management.sql`: Skrip lengkap untuk membuat dan mengisi database.
 
-`Queries/`
-- `queries.sql`: Contoh query SQL yang digunakan dalam proyek ini.
+`Case Study/`
+- `case_study.sql`: Contoh query SQL yang digunakan dalam proyek ini.
 
 `Images/`
 - `erd_imagae.png`: Gambar Entity Relationship Diagram (ERD).
@@ -139,11 +139,11 @@ Proyek ini bertujuan untuk mendesain dan mengimplementasikan database relasional
 ### 1. Create Database
 > Query sql untuk membuat database dengan nama hotel_database
 ```sql
-CREATE DATABASE hotel_database;
+CREATE DATABASE hotel_management;
 ```
 
 ### 2. Create Table 
-> Query sql untuk membuat tabel guests, tabel lain dapat dilihat di `Database/hotel_database.sql`
+> Query sql untuk membuat tabel guests, tabel lain dapat dilihat di `Database/hotel_management.sql`
 ```sql
 CREATE TABLE guests (
   id INT AUTO_INCREMENT PRIMARY KEY,
@@ -156,7 +156,7 @@ CREATE TABLE guests (
 ```
 
 ### 3. Insert Table
-> Query sql untuk mengisi tabel guest, tabel lain dapat dilihat di `Database/hotel_database.sql`
+> Query sql untuk mengisi tabel guest, tabel lain dapat dilihat di `Database/hotel_management.sql`
 ```sql
 INSERT INTO guests (name, gender, phone, email, address)
 VALUES
@@ -225,9 +225,10 @@ JOIN
 
 Studi kasus yang akan dibahas adalah proses reservasi kamar hotel oleh seorang tamu yang mencakup seluruh tahapan dalam proses booking, mulai dari pengecekan ketersediaan kamar, registrasi tamu, pencatatan booking, pembayaran, hingga ulasan. Setiap langkah akan dijelaskan secara rinci untuk memberikan gambaran bagiamana sistem manajemen hotel bekerja.  
 
-> John Doe ingin memesan kamar hotel untuk liburan bersama keluarganya. Ia membutuhkan dua kamar, satu untuk dirinya dan istrinya, serta satu lagi untuk kedua anak mereka. John memesan kamar tipe Suite dan tipe Superior melalui sistem online. Booking dilakukan pada tanggal 2024-12-27, dengan rencana check-in pada 2024-12-29 dan check-out pada 2024-12-30 (2 malam). Setelah pembayaran dilakukan menggunakan kartu kredit, John dan keluarganya menginap sesuai jadwal. Setelah check-out, John memberikan ulasan positif tentang pengalaman menginapnya.
+> John Doe ingin memesan kamar di The Urban Hotel untuk liburan bersama keluarganya. Ia membutuhkan dua kamar, satu untuk dirinya dan istrinya, serta satu lagi untuk kedua anak mereka. John memesan kamar tipe Suite dan tipe Superior melalui sistem online. Booking dilakukan pada tanggal 2024-12-27, dengan rencana check-in pada 2024-12-29 dan check-out pada 2024-12-30 (2 malam). Setelah pembayaran dilakukan menggunakan kartu kredit, John dan keluarganya menginap sesuai jadwal. Setelah check-out, John memberikan ulasan positif tentang pengalaman menginapnya.
 
-### 1. Availibility Room Check 
+### 1. Room Availability Check 
+> Proses pertama adalah memastikan ketersediaan kamar tipe Suite dan Superior yang akan dipesan oleh John Doe. Sistem akan mencari kamar dengan status "Available" untuk memastikan kamar tersebut siap digunakan.
 ```sql
 SELECT * FROM Rooms 
 WHERE
@@ -236,20 +237,20 @@ WHERE
 ```
 
 ### 2. Guest Registration 
+> Karena ini adalah pertama kalinya John Doe menginap di The Urban Hotel, proses registrasi dilakukan untuk mencatat informasi pribadi tamu ke dalam sistem manajemen hotel. Hal ini memastikan data tamu tersimpan dengan lengkap untuk memudahkan pelayanan di masa mendatang. 
 ```sql
 INSERT INTO Guests (name, gender, phone, email, address)
 VALUE
   ('John Doe', 'Male', '+1-123-456-7890', 'john.doe@example.com', '123 Main Street, Manhattan, New York');
 ```
 
-### 3. Hotel Booking
+### 3. Room Booking
+> Setelah registrasi selesai, John melanjutkan proses pemesanan dua kamar yang diinginkannya. Sistem mencatat data pemesanan, termasuk tipe kamar, kode booking, serta tanggal check-in dan check-out, untuk memastikan akurasi informasi selama masa inap tamu.
 ```sql
 INSERT INTO `bookings` (`guest_id`, `booking_date`, `booking_code`, `status`) 
 VALUE
   (16, '2024-12-27', 'BKG20241222001', 'Upcoming');
 ```
-
-### 4. Room Booking
 ```sql
 INSERT INTO `details` (`booking_id`, `room_id`, `check_in`, `check_out`, `price_total`) 
 VALUES
@@ -257,7 +258,16 @@ VALUES
   (16, 21, '2024-12-29', '2024-12-30', 5000);
 ```
 
-### 5. Update Room (Occupied)
+### 4. Payment Detail
+> Setelah proses reservasi selesai, rincian pembayaran dicatat, termasuk metode pembayaran yang dipilih John Doe, yaitu transfer bank. Status pembayaran pada awalnya ditetapkan sebagai "Pending" hingga pembayaran selesai diverifikasi oleh sistem. 
+```sql
+INSERT INTO `payments` (`booking_id`, `amount_paid`, `method`, `status`) 
+VALUE
+  (16, 1400, 'Bank Transfer', 'Pending');
+```
+
+### 5. Update Room Status
+> Setelah kamar dipesan dan pembayaran terverifikasi, status kamar diperbarui menjadi "Occupied" untuk memastikan tidak dapat dipesan oleh tamu lain selama periode inap yang telah ditentukan.
 ```sql
 UPDATE rooms
 SET
@@ -266,14 +276,8 @@ WHERE
   id IN (20, 21); 
 ```
 
-### 6. Insert Payment
-```sql
-INSERT INTO `payments` (`booking_id`, `amount_paid`, `method`, `status`) 
-VALUE
-  (16, 1400, 'Bank Transfer', 'Pending');
-```
-
-### 7. Update Payment
+### 6. Update Payment
+> Setelah John menyelesaikan pembayaran penuh, status pembayaran diperbarui dari "Pending" menjadi "Paid." Hal ini memastikan bahwa semua transaksi keuangan terkait reservasi telah diselesaikan dengan baik.
 ```sql
 UPDATE payments
 SET
@@ -282,7 +286,8 @@ WHERE
   id = 16; 
 ```
 
-### 8. Update Booking & Room Status
+### 7. Finalizing Booking & Room Status
+> Setelah masa inap selesai, status pemesanan diubah menjadi "Completed" untuk menunjukkan bahwa reservasi telah selesai. Status kamar juga diperbarui menjadi "Available," sehingga kamar tersebut dapat dipesan kembali oleh tamu lain.
 ```sql
 UPDATE bookings, rooms
 SET
@@ -293,13 +298,13 @@ WHERE
   rooms.id IN (20, 21);
 ```
 
-### Create Review
+### Guest Review
+> Sebagai langkah terakhir, John memberikan ulasan terkait pengalamannya menginap di The Urban Hotel. Dalam ulasannya, ia memberikan rating tertinggi, yaitu 5 bintang, dan menyebutkan bahwa hotel ini memiliki fasilitas yang luar biasa serta layanan yang sangat memuaskan.
 ```sql
 INSERT INTO `reviews` (`booking_id`, `rating`, `comment`) 
 VALUE
 	(16, '5', 'Amazing hotel, I love it.');
 ```
-
 ---
 
 ## 🚀 How to Run
