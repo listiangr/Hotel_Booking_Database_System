@@ -338,11 +338,6 @@ VALUE
 
 ## 📌 Conclusion
 
-Sistem database reservasi hotel ini memberikan solusi yang terorganisir untuk mengelola data tamu, kamar, pembayaran, dan ulasan dengan lebih efisien. Dengan desain relasional, sistem ini dapat:
-1. Meminimalkan Kesalahan Manual: Data yang terpusat mempermudah pengelolaan dan mengurangi risiko kesalahan.
-2. Meningkatkan Kecepatan Pencarian Data: Query yang dioptimalkan memungkinkan pengambilan data secara cepat.
-3. Mempermudah Pelacakan Transaksi: Semua transaksi dicatat dengan detail, memudahkan audit dan pelaporan.
-4. Evaluasi Layanan Melalui Ulasan: Data ulasan tamu membantu hotel dalam meningkatkan kualitas layanan.
-Sistem ini dapat dikembangkan lebih lanjut untuk mengintegrasikan API pembayaran, fitur notifikasi, dan dashboard analitik untuk pelaporan real-time.
+Implementasi sistem manajemen database hotel ini terbukti efektif dalam meningkatkan efisiensi operasional. Pengelolaan data tamu, pemesanan, pembayaran, dan ulasan dapat dilakukan dengan lebih terstruktur melalui tabel-tabel yang terorganisir. Sistem ini memungkinkan pelacakan informasi tamu, pemantauan ketersediaan kamar, pencatatan pembayaran, serta pengelolaan feedback tamu dengan mudah dan akurat. Secara keseluruhan, penerapan database ini membantu mengurangi kesalahan manual, mempercepat proses administratif, dan memberikan wawasan berharga untuk pengembangan hotel.
 
 ---
