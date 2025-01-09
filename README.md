@@ -1,4 +1,4 @@
-# Hotel Booking Database System
+# Hotel Management Database System
 
 ## 📄 Overview
 
@@ -298,7 +298,7 @@ WHERE
   rooms.id IN (20, 21);
 ```
 
-### Guest Review
+### 8. Guest Review
 > Sebagai langkah terakhir, John memberikan ulasan terkait pengalamannya menginap di The Urban Hotel. Dalam ulasannya, ia memberikan rating tertinggi, yaitu 5 bintang, dan menyebutkan bahwa hotel ini memiliki fasilitas yang luar biasa serta layanan yang sangat memuaskan.
 ```sql
 INSERT INTO `reviews` (`booking_id`, `rating`, `comment`) 
