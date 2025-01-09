@@ -190,7 +190,7 @@ SELECT * FROM Guests;
 SELECT * FROM Rooms
 WHERE
   status = 'Available' AND
-  price_night < 300;
+  price_night < 200;
 ```
 ![Available Room](https://github.com/listiangr/Hotel_Booking_Database_System/blob/main/Images/select_available_room.png)
 
@@ -199,7 +199,7 @@ WHERE
 SELECT * FROM Payments
 WHERE
   method = 'Credit Card' AND
-  amount_paid > 2000; 
+  amount_paid > 300; 
 ```
 ![Payment Credit](https://github.com/listiangr/Hotel_Booking_Database_System/blob/main/Images/select_payment_credit.png)
 
@@ -225,7 +225,7 @@ JOIN
 
 Studi kasus yang akan dibahas adalah proses reservasi kamar hotel oleh seorang tamu yang mencakup seluruh tahapan dalam proses booking, mulai dari pengecekan ketersediaan kamar, registrasi tamu, pencatatan booking, pembayaran, hingga ulasan. Setiap langkah akan dijelaskan secara rinci untuk memberikan gambaran bagiamana sistem manajemen hotel bekerja.  
 
-> John Doe ingin memesan kamar di The Urban Hotel untuk liburan bersama keluarganya. Ia membutuhkan dua kamar, satu untuk dirinya dan istrinya, serta satu lagi untuk kedua anak mereka. John memesan kamar tipe Suite dan tipe Superior melalui sistem online. Booking dilakukan pada tanggal 2024-12-27, dengan rencana check-in pada 2024-12-29 dan check-out pada 2024-12-30 (2 malam). Setelah pembayaran dilakukan menggunakan kartu kredit, John dan keluarganya menginap sesuai jadwal. Setelah check-out, John memberikan ulasan positif tentang pengalaman menginapnya.
+> John Doe ingin memesan kamar di The Urban Hotel untuk liburan bersama keluarganya. Ia membutuhkan dua kamar, satu untuk dirinya dan istrinya, serta satu lagi untuk kedua anak mereka. John memesan kamar tipe Suite dan tipe Superior melalui sistem online. Booking dilakukan pada tanggal 2024-12-07, dengan rencana check-in pada 2024-12-08 dan check-out pada 2024-12-10 (2 malam). Setelah pembayaran dilakukan menggunakan kartu kredit, John dan keluarganya menginap sesuai jadwal. Setelah check-out, John memberikan ulasan positif tentang pengalaman menginapnya.
 
 ### 1. Room Availability Check 
 > Proses pertama adalah memastikan ketersediaan kamar tipe Suite dan Superior yang akan dipesan oleh John Doe. Sistem akan mencari kamar dengan status "Available" untuk memastikan kamar tersebut siap digunakan.
@@ -241,7 +241,7 @@ WHERE
 ```sql
 INSERT INTO Guests (name, gender, phone, email, address)
 VALUE
-  ('John Doe', 'Male', '+1-123-456-7890', 'john.doe@example.com', '123 Main Street, Manhattan, New York');
+  ('John Doe', 'Male', '+1-123-456-7890', 'john.doe@example.com', '9555 Main Street, Manhattan, New York');
 ```
 
 ### 3. Room Booking
@@ -249,13 +249,13 @@ VALUE
 ```sql
 INSERT INTO `bookings` (`guest_id`, `booking_date`, `booking_code`, `status`) 
 VALUE
-  (16, '2024-12-27', 'BKG20241222001', 'Upcoming');
+  (16, '2024-12-07', 'BKG20241207005', 'Upcoming');
 ```
 ```sql
 INSERT INTO `details` (`booking_id`, `room_id`, `check_in`, `check_out`, `price_total`) 
 VALUES
-  (16, 20, '2024-12-29', '2024-12-30', 900),
-  (16, 21, '2024-12-29', '2024-12-30', 5000);
+  (16, 20, '2024-12-08', '2024-12-10', 500),
+  (16, 21, '2024-12-08', '2024-12-10', 900);
 ```
 
 ### 4. Payment Detail
