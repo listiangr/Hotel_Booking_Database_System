@@ -331,7 +331,8 @@ VALUE
    - Import file `Database/hotel_management.sql` ke dalam database. 
 3. Coba Case Study
    - Anda dapat langsung mengimpor file `Case Study/case_study.sql` ke dalam database atau menjalankan query yang ada satu per satu.
-4. Selesai! Anda siap untuk mulai mengeksplorasi dan melakukan eksperimen lebih lanjut dengan sistem database pemesanan hotel ini.
+5. Selesai!
+   - Anda siap untuk mulai mengeksplorasi dan melakukan eksperimen lebih lanjut dengan sistem database pemesanan hotel ini.
 
 ---
 
