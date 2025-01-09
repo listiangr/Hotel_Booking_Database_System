@@ -15,21 +15,34 @@ Proyek ini bertujuan untuk mendesain dan mengimplementasikan database relasional
 
 ## 📂 Folder Structure 
 
-`Database/`
-- `hotel_management.sql`: Skrip lengkap untuk membuat dan mengisi database.
-
 `Case Study/`
 - `case_study.sql`: Contoh query SQL yang digunakan dalam proyek ini.
 
+`Database/`
+- `hotel_management.sql`: Skrip lengkap untuk membuat dan mengisi database.
+
 `Images/`
-- `erd_imagae.png`: Gambar Entity Relationship Diagram (ERD).
-- `database_schema.png`: Gambar skema database berisi atribut dan relasi. 
+- `erd_image.png`: Entity Relationship Diagram (ERD) sistem hotel.
+- `database_schema.png`: Skema database dengan tabel dan relasi.
+- `select_all_guest.png`: Hasil query menampilkan semua tamu.
+- `select_available_room.png`: Hasil query kamar yang tersedia.
+- `select_payment_credit.png`: Hasil query pembayaran dengan kartu kredit.
+- `select_review_hotel.png`: Hasil query ulasan hotel.
 
 `README.md`: Dokumentasi proyek Hotel Booking Database System.
 
 ---
 
-## 🛠️ Database Structure
+## 🛠️ Tools & Technologies
+
+- `MySQL`: Sistem manajemen database relasional untuk menyimpan data dan menjalankan query SQL.
+- `SQL`: Bahasa yang digunakan untuk berinteraksi dengan database. 
+- `XAMPP`: Paket perangkat lunak untuk menjalankan server lokal dengan Apache, MySQL/MariaDB, PHP.
+- `phpMyAdmin`: Antarmuka berbasis web untuk mengelola database MySQL/MariaDB secara visual.
+
+---
+
+## 🔑 Database Structure
 
 ### Entity Relationship Diagram (ERD)
 
@@ -301,9 +314,9 @@ WHERE
 ### 8. Guest Review
 > Sebagai langkah terakhir, John memberikan ulasan terkait pengalamannya menginap di The Urban Hotel. Dalam ulasannya, ia memberikan rating tertinggi, yaitu 5 bintang, dan menyebutkan bahwa hotel ini memiliki fasilitas yang luar biasa serta layanan yang sangat memuaskan.
 ```sql
-INSERT INTO `reviews` (`booking_id`, `rating`, `comment`) 
+INSERT INTO `reviews` (`booking_id`, `rating`, `comment`)
 VALUE
-	(16, '5', 'Amazing hotel, I love it.');
+  (16, '5', 'Amazing hotel, I love it.');
 ```
 ---
 
@@ -312,15 +325,13 @@ VALUE
 1. Clone repository
    ```bash
    git clone https://github.com/listiangr/Hotel_Booking_Database_System.git
+   ```
 2. Import database
-   ```bash
-   pip install -r requirements.txt
-3. Run app
-   ```bash
-   python play_tennis_app.py
-4. Open browser
-   ```bash
-   http://127.0.0.1:5000
+   - Buka **phpMyAdmin** atau aplikasi database lain yang Anda gunakan.
+   - Import file `Database/hotel_management.sql` ke dalam database. 
+3. Coba Case Study
+   - Anda dapat langsung mengimpor file `Case Study/case_study.sql` ke dalam database atau menjalankan query yang ada satu per satu.
+4. Selesai! Anda siap untuk mulai mengeksplorasi dan melakukan eksperimen lebih lanjut dengan sistem database pemesanan hotel ini.
 
 ---
 
