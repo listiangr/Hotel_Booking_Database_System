@@ -322,10 +322,7 @@ VALUE
 
 ## 🚀 How to Run
 
-1. Clone repository
-   ```bash
-   git clone https://github.com/listiangr/Hotel_Booking_Database_System.git
-   ```
+1. Clone repository `git clone https://github.com/listiangr/Hotel_Booking_Database_System.git`
 2. Import database
    - Buka **phpMyAdmin** atau aplikasi database lain yang Anda gunakan.
    - Import file `Database/hotel_management.sql` ke dalam database. 
